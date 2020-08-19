@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" id="validationCustomUsername" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" maxlength="20" minlength="8" type="password" required>
+            <div class="invalid-feedback">
+              Must be 8-20 characters long.
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Log In</button>
+    </form>
+{% endblock %}

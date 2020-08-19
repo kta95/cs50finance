@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for category, message in messages %}
+      <li class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+{% block main %}
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Shares</th>
+      <th scope="col">Price</th>
+      <th scope="col">TOTAL</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in rows %}
+    <tr>
+      <th scope="row">{{ row.symbol }}</th>
+      <td>{{ row.name }}</td>
+      <td>{{ row.shares }}</td>
+      <td>{{ row.price }}</td>
+      <td> {{ row.usd_total }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+      <th scope="row">CASH</th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>{{balance}}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <th scope="row">{{my_cash}}</th>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}

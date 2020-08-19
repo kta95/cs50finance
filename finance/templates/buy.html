@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy Stock
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text" required>
+            <div class="invalid-feedback">
+              Cannot be empty!
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="shares" placeholder="Shares" type="number" required>
+            <div class="invalid-feedback">
+              Cannot be empty!
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}

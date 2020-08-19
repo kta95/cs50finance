@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell Stock
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post" class="needs-validation" novalidate>
+        <div class="form-group">
+            <select class="form-control" name="symbol" >
+                <option value="symbol" selected>Symbol</option>
+            {% for row in rows %}
+                <option value="{{ row.symbol }}">{{ row.symbol }}</option>
+            {% endfor %}
+            </select>        </div>
+        <div class="form-group">
+            <input class="form-control" name="shares" placeholder="Shares" type="number" required>
+            <div class="invalid-feedback">
+              Cannot be empty!
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
